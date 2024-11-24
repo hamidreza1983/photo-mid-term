@@ -4,10 +4,11 @@ from services.models import Agent
 
 # Category - model
 class Category(models.Model):
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    status = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return self.title
     
 
 # Project_info - model
