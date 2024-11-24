@@ -4,5 +4,5 @@ from .views import *
 
 # create your root`s urls
 urlpatterns = [
-    path("services", services, name="services"),
+    path("/", services, name="services"),
 ]
