@@ -5,7 +5,8 @@ from .models import *
 admin.site.register(Services)
 admin.site.register(Pricing)
 admin.site.register(Ability)
-admin.site.register(Agents)
+admin.site.register(Agent)
+admin.site.register(Testimonials)
 
 
 
