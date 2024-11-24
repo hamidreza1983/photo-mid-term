@@ -26,7 +26,7 @@ class Services(models.Model):
 
 
 # Abiliti - model
-class Ability ( models.Model):
+class Ability (models.Model):
     name = models.CharField(max_length=200)
     
     def __str__(self):

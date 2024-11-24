@@ -4,7 +4,7 @@ from services.models import Agent
 
 # Category - model
 class Category(models.Model):
-    name = models.models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
 
     def __str__(self):
         return self.name
@@ -20,14 +20,14 @@ class Project_info(models.Model):
 
 
 # Gallery_single - model
-class Gallery_single(models.nodels):
+class Gallery_single(models.Model):
     image = models.ImageField()
     title = models.CharField(max_length=200)
     content = models.TextField()
     agent_description = models.TextField()
-    agent = models.ForeignKey(Agent)
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     description = models.TextField()
-    project_info = models.ForeignKey(Project_info, on_delete=models.CASCADE)()
+    project_info = models.ForeignKey(Project_info, on_delete=models.CASCADE)
 
 
 # Gallery - model
