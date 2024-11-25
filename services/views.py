@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Services , Pricing , Testimonials
+
+from django.shortcuts import render , get_object_or_404
+from .models import Services
 
 
 def services(request):
