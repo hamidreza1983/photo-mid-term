@@ -15,4 +15,9 @@ class Services(models.Model):
 
 #complete Agents-model
 class Agents(models.Model):
-    pass
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="agents", default="default.jpg")
+    ability = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
