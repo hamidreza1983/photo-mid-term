@@ -2,7 +2,7 @@ from root.models import Category
 
 def general_context(request):
     context = {
-        'categories' : Category.objects.all()
+        'categories' : Category.objects.filter(status=True)
     }
 
     return context
