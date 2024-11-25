@@ -1,8 +1,20 @@
+
 from django.shortcuts import render , get_object_or_404
 from .models import Services
 
 
-
-#complete services view
 def services(request):
-    return render(request,'services/services.html')
+    service = Services.objects.filter(status=True)
+    price = Pricing.objects.filter(status=True)
+    tester = Testimonials.objects.filter(status=True)
+    context = {
+        "services": service,
+        "price" : price,
+        "tester" : tester,
+    }
+    return render(request,'root/services.html',context=context)
+
+
+
+
+

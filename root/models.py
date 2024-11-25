@@ -1,25 +1,32 @@
 from django.db import models
-from services.models import Agents
+from services.models import Agent
 
 
-#complete category-model
+# Category - model
 class Category(models.Model):
     title = models.CharField(max_length=200)
-    status = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.title
+    
 
-#complete gallery-model
+# Gallery - model
 class Gallery(models.Model):
-    image = models.ImageField(upload_to="gallary",default="default.jpg")
-    category = models.ForeignKey(Category , on_delete=models.CASCADE)
-    title = models.CharField( max_length=200)
-    desc = models.TextField()
-    image_agent = models.ForeignKey(Agents, on_delete=models.CASCADE)
-    cat = models.CharField(max_length=200)
+    #gallery-single :
+    picture = models.ImageField(upload_to="picture",default="default.jpg" )
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
+    agent_description = models.TextField()
+    description = models.TextField()
+        #project-info :
+    category = models.ManyToManyField(Category)
     client = models.CharField(max_length=200)
-    project_date = models.CharField(max_length=200)
-    url = models.CharField(max_length=200)
+    project_date = models.DateTimeField(auto_now_add=True)
+    project_url = models.CharField(max_length=200)
     status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
-    
+
+
